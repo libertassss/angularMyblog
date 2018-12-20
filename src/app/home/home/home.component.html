@@ -1,3 +1,85 @@
-<p>
-  home works!
-</p>
+<nz-layout class="box">
+  <app-header></app-header>
+  <nz-layout>
+    <nz-sider>
+      <app-left-nav [isSelected]="isSelected"></app-left-nav>
+    </nz-sider>
+    <nz-content>
+      <!-- 标签 -->
+      <app-tags [tagChecked]="tagChecked"></app-tags>
+      <!-- 用户列表 -->
+       <nz-table [nzNoResult]="'暂无数据'" #editRowTable [nzBordered]="true" [nzData]="userData" [nzShowPagination]="false">
+         <thead>
+            <tr>
+              <th nzShowCheckbox nzShowRowSelection [nzSelections]="listOfSelection" [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+              <th nzWidth="10%">用户Id</th>
+              <th nzWidth="20%">昵称</th>
+              <th nzWidth="20%">手机号</th>
+              <th nzWidth="25%">邮箱</th>
+              <th nzWidth="10%">用户状态</th>
+              <th>操作</th>
+            </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let data of editRowTable.data">
+              <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus()"></td>
+              <td>
+                <ng-container>
+                  {{data.userId}}
+                </ng-container>
+              </td>
+              <td>
+                <ng-container *ngIf="!editCache[(data.userId)].edit">
+                  {{data.userNickname}}
+                </ng-container>
+                <ng-container *ngIf="editCache[(data.userId)].edit">
+                    <input type="text" nz-input [(ngModel)]="editCache[data.userId].data.userNickname">
+                </ng-container>
+              </td>
+              <td>
+                <ng-container *ngIf="!editCache[data.userId].edit">
+                  {{data.userName}}
+                </ng-container>
+                <ng-container *ngIf="editCache[data.userId].edit">
+                  <input type="text" nz-input [(ngModel)]="editCache[data.userId].data.userName">
+                </ng-container>
+              </td>
+              <td>
+                <ng-container *ngIf="!editCache[data.userId].edit">
+                  {{data.userEmail}}
+                </ng-container>
+                <ng-container *ngIf="editCache[data.userId].edit">
+                  <input type="text" nz-input [(ngModel)]="editCache[data.userId].data.userEmail">
+                </ng-container>
+              </td>
+              <td>
+                <ng-container *ngIf="!editCache[data.userId].edit">
+                  {{data.userStatus}}
+                </ng-container>
+                <ng-container *ngIf="editCache[data.userId].edit">
+                  <input type="text" nz-input [(ngModel)]="editCache[data.userId].data.userStatus">
+                </ng-container>
+              </td>
+              <td>
+                <div class="editable-row-operations">
+                  <ng-container *ngIf="!editCache[data.userId].edit">
+                    <a (click)="startEdit(data.userId)">Edit</a>
+                  </ng-container>
+                  <ng-container *ngIf="editCache[data.userId].edit">
+                    <a (click)="saveEdit(data.userId)">Save</a>
+                    <!-- <nz-popconfirm [nzTitle]="'Sure to cancel?'" (nzOnConfirm)="cancelEdit(data.userId)">
+                      <a nz-popconfirm>Cancel</a>
+                    </nz-popconfirm> -->
+                  </ng-container>
+                </div>
+              </td>
+           </tr>
+         </tbody>
+       </nz-table>
+
+
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+
+

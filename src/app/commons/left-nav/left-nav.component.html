@@ -1,0 +1,35 @@
+<nz-sider>
+      <ul nz-menu [nzMode]="'inline'" style="width: 200px;" [nzTheme]="'dark'" >
+        <li nz-submenu [nzOpen]="isSelected.key==1">
+          <span title><i nz-icon type="mail"></i>用户管理</span>
+          <ul>
+            <ul>
+              <li nz-menu-item [nzSelected]="isSelected.path=='home'" (click)="goUserList()">用户列表</li>
+              <li nz-menu-item [nzSelected]="isSelected.path=='register'" (click)="goRegister()">用户注册</li>
+            </ul>
+          </ul>
+        </li>
+        <li nz-submenu [nzOpen]="isSelected.key==2">
+          <span title><i nz-icon type="appstore"></i> 文章管理</span>
+          <ul>
+            <li nz-menu-item [nzSelected]="isSelected.path=='articleList'" (click)="goArticleList()">文章列表</li>
+            <li nz-menu-item [nzSelected]="isSelected.path=='articleCategory'" (click)="goArticleCategory()">文章类别</li>
+            <li nz-menu-item [nzSelected]="isSelected.path=='articleTags'" (click)="goArticleTags()">文章标签</li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title><i nz-icon type="setting"></i>评论管理</span>
+          <ul>
+            <li nz-menu-item>评论列表</li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title><i nz-icon type="setting"></i>网站管理</span>
+          <ul>
+            <li nz-menu-item>导航</li>
+          </ul>
+        </li>
+      </ul>
+</nz-sider>  
+
+
