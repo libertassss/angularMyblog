@@ -20,6 +20,8 @@ import { ArticleListComponent } from './article/article-list/article-list.compon
 import { ArticleCategoryComponent } from './article/article-category/article-category.component';
 import { ArticleTagsComponent } from './article/article-tags/article-tags.component';
 import { TagsComponent } from './commons/tags/tags.component';
+import { NewArticleComponent } from './article/new-article/new-article.component';
+import { ParentsComponent } from './parents/parents.component';
 
 
 
@@ -36,6 +38,8 @@ import { TagsComponent } from './commons/tags/tags.component';
     ArticleCategoryComponent,
     ArticleTagsComponent,
     TagsComponent,
+    NewArticleComponent,
+    ParentsComponent,
   ],
   // 组件
   imports: [

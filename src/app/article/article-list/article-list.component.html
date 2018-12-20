@@ -4,12 +4,56 @@
       <nz-sider>
         <app-left-nav [isSelected]="isSelected"></app-left-nav>
       </nz-sider>
-      <nz-content>
+      <nz-content class="conten_list">
         <!-- 标签 -->
         <app-tags [tagChecked]="tagChecked"></app-tags>
-        <!-- 文章类别 -->
+        <!-- 文章列表 -->
+        <router-outlet></router-outlet>
+       <div><button nz-button nzType="default" (click)="editArticle()">写文章</button></div>
+        <nz-list *ngIf="data.length>0"
+    [nzDataSource]="data"
+    [nzItemLayout]="'vertical'"
+    [nzRenderItem]="item"
+    >
+    <ng-template #item let-item>
+      <nz-list-item [nzContent]="content" [nzActions]="[starAction,likeAction,msgAction]" [nzExtra]="extra">
+        <ng-template #content>
+          <p>{{item.articleContentMd}}</p>
+          <!-- <span>{{item.user.userName}}</span> -->
+        </ng-template>
+        
+        <ng-template #starAction><i nz-icon type="star-o" style="margin-right: 8px;"></i> 156</ng-template>
+        <ng-template #likeAction><i nz-icon type="like-o" style="margin-right: 8px;"></i> 156</ng-template>
+        <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template>
+        <nz-list-item-meta
+          [nzTitle]="nzTitle"
+          [nzDescription]="nzTag">
+          <ng-template #nzTitle><a href="{{item.href}}">{{item.articleTitle}}</a></ng-template>
+          <ng-template #nzTag>
+            <span class="tag_box" *ngFor="let tag of item.tag">{{tag.tagName}}</span>
+          </ng-template>
+        </nz-list-item-meta>
+        <ng-template #extra>
+          <!-- <img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"> -->
+          <span class="tag_box">{{item.user.userNickname}}</span>
+          <span class="tag_box"><a (click)="edit(item)">edit</a></span>
+          <span class="tag_box"><a (click)="more(item)">more</a></span>
+        </ng-template>
+        <!-- <ng-template #extra>
+          <a (click)="edit(item)">edit</a>
+          <a (click)="more(item)">more</a>
+        </ng-template> -->
+        
+      </nz-list-item>
+    </ng-template>
+    <!-- <ng-template #footer>
+      <div><b>ant design</b> footer part</div>
+    </ng-template>
+    <ng-template #pagination>
+      <nz-pagination [nzPageIndex]="1" [nzTotal]="50" (nzPageIndexChange)="loadData($event)"></nz-pagination>
+    </ng-template> -->
+  </nz-list>
 
-        文章列表
         </nz-content>
       </nz-layout>
 </nz-layout>
