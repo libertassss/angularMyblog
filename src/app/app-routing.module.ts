@@ -7,21 +7,21 @@ import { ArticleListComponent } from './article/article-list/article-list.compon
 import { ArticleCategoryComponent } from './article/article-category/article-category.component';
 import { ArticleTagsComponent } from './article/article-tags/article-tags.component';
 import { NewArticleComponent } from './article/new-article/new-article.component';
+import { ParentsComponent } from './parents/parents.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'articleList',component:ArticleListComponent,
+  {path:'parents',component:ParentsComponent,
     children:[
-      {
-        path:'newArticle',component:NewArticleComponent
-      }
+      {path:'home',component:HomeComponent},
+      {path:'register',component:RegisterComponent},
+      {path:'articleList',component:ArticleListComponent,},
+      {path:'articleCategory',component:ArticleCategoryComponent},
+      {path:'articleTags',component:ArticleTagsComponent},
+      {path:'newArticle',component:NewArticleComponent}
     ]
   },
-  {path:'articleCategory',component:ArticleCategoryComponent},
-  {path:'articleTags',component:ArticleTagsComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-new-article',
   templateUrl: './new-article.component.html',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NewArticleComponent implements OnInit {
 
   constructor() { }
+  
 
   ngOnInit() {
   }

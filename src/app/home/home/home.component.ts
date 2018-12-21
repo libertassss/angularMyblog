@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { StorageService } from '../../service/storage.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,14 @@ import { StorageService } from '../../service/storage.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(public http:HttpClient,public storage:StorageService) {
+  constructor(public http:HttpClient,public storage:StorageService,private activatedRoute:ActivatedRoute) {
    
   }
   public userData:Array<any>=[];
   public editCache:object={};
   public allChecked:boolean = false;
   public indeterminate:boolean = false;
-  public isSelected:object={path:'home',key:1};
+  public isSelected:string='home';
   public tags:Array<any>=[];
   public tagChecked:string='用户列表';
 
@@ -47,7 +48,6 @@ export class HomeComponent implements OnInit {
   
   
   ngOnInit() {
-    this.storage.setPaths('用户列表');
     this.http.post('/api/selectAllUser',{}).subscribe((res:any)=>{
       console.log(res);
       if(res.code==0){

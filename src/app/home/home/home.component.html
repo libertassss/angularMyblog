@@ -1,15 +1,4 @@
-<nz-layout class="box">
-  <app-header></app-header>
-  <nz-layout>
-    <nz-sider>
-      <app-left-nav [isSelected]="isSelected"></app-left-nav>
-    </nz-sider>
-    <nz-content>
 
-        
-      <!-- 标签 -->
-      <app-tags [tagChecked]="tagChecked"></app-tags>
-      <!-- 用户列表 -->
        <nz-table [nzNoResult]="'暂无数据'" #editRowTable [nzBordered]="true" [nzData]="userData" [nzShowPagination]="false">
          <thead>
             <tr>
@@ -80,8 +69,8 @@
        </nz-table>
 
 
-    </nz-content>
+    <!-- </nz-content>
   </nz-layout>
-</nz-layout>
+</nz-layout> -->
 
 

@@ -1,14 +1,6 @@
-<nz-layout class="box">
-    <app-header></app-header>
-    <nz-layout>
-      <nz-sider>
-        <app-left-nav [isSelected]="isSelected"></app-left-nav>
-      </nz-sider>
-      <nz-content class="conten_list">
-        <!-- 标签 -->
-        <app-tags [tagChecked]="tagChecked"></app-tags>
+
         <!-- 文章列表 -->
-        <router-outlet></router-outlet>
+       <div class="content_box">
        <div><button nz-button nzType="default" (click)="editArticle()">写文章</button></div>
         <nz-list *ngIf="data.length>0"
     [nzDataSource]="data"
@@ -53,7 +45,6 @@
       <nz-pagination [nzPageIndex]="1" [nzTotal]="50" (nzPageIndexChange)="loadData($event)"></nz-pagination>
     </ng-template> -->
   </nz-list>
+</div>
 
-        </nz-content>
-      </nz-layout>
-</nz-layout>
+

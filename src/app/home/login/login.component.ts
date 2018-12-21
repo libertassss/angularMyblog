@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       if(res.code==0){
         this.storage.setUserId(res.data.userId);
         this.message.info('登录成功');
-        this.router.navigateByUrl('home');
+        this.router.navigate(['/parents/home']);
       }else{
 
       }

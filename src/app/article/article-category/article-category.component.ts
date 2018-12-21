@@ -7,8 +7,8 @@ import { Component, OnInit} from '@angular/core';
 })
 export class ArticleCategoryComponent implements OnInit {
   constructor() { }
-  public isSelected:object={path:'articleCategory',key:2};
-  public tagChecked:string='文章类别';
+
+
   ngOnInit() {
   }
 

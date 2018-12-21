@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
   constructor() {  }
+  private tagChecked:string;
 
   public setUserId(userId:number) : void{
     localStorage.setItem("userId",userId.toString());
@@ -14,6 +15,8 @@ export class StorageService {
   }
 
   public setPaths(data:any):void{
+    this.tagChecked=data;
+    console.log(data);
     if(localStorage.getItem("paths")==null){
       let arr=new Array();
       localStorage.setItem("paths",JSON.stringify(arr));
@@ -37,9 +40,15 @@ export class StorageService {
         localStorage.setItem('paths',JSON.stringify(paths));
       }else{
         // 当前存在，置顶
+        console.log('运行到置顶');
         this.swapArray(paths,paths.indexOf(data));
       }
     } 
+  }
+
+  public getTagChecked():string{
+    console.log(this.tagChecked);
+    return this.tagChecked;
   }
 
   public getPaths():any{

@@ -9,8 +9,8 @@ import {Router} from '@angular/router';
 export class ArticleListComponent implements OnInit {
  
   constructor(public http:HttpClient,public router:Router) { }
-  public isSelected:object={path:'articleList',key:2};
-  public tagChecked:string='文章列表';
+
+
   public data:Array<any>=[];
  
   
@@ -26,7 +26,7 @@ export class ArticleListComponent implements OnInit {
   public editArticle():void{
     console.log(1);
 
-    this.router.navigateByUrl('/articleList/newArticle');
+    this.router.navigateByUrl('/parents/newArticle');
   }
   ngOnInit() {
     this.http.post('/api/selectAllArticle','').subscribe((res:any)=>{

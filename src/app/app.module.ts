@@ -7,6 +7,8 @@ import {NgZorroAntdModule, NZ_I18N, NZ_MESSAGE_CONFIG} from 'ng-zorro-antd';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {EditorMdDirective} from './editor/editor-md.directive';
+
 // 服务
 import {StorageService} from './service/storage.service';
 
@@ -26,7 +28,7 @@ import { ParentsComponent } from './parents/parents.component';
 
 
 @NgModule({
-  // 模块
+  // 组件
   declarations: [
     AppComponent,
     HomeComponent,
@@ -40,15 +42,17 @@ import { ParentsComponent } from './parents/parents.component';
     TagsComponent,
     NewArticleComponent,
     ParentsComponent,
+    EditorMdDirective
   ],
-  // 组件
+//  模块
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgZorroAntdModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
   // 服务
   providers: [{ provide: NZ_I18N, useValue: {nzDuration: 3000}},StorageService],

@@ -7,12 +7,17 @@ import {StorageService} from '../../service/storage.service';
   styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent implements OnInit {
-  constructor(public storage:StorageService) { }
+  constructor(public storage:StorageService) {
+   
+  }
   public tags:any;
-  @Input() tagChecked:any;
+  public tagChecked:any;
   
   ngOnInit() {
+   alert('tag')
     this.tags=this.storage.getPaths();
+    this.tagChecked=this.storage.getTagChecked();
+    console.log(this.tags);
   }
   public onClose(e: MouseEvent,tag:string): void {
     console.log('tag was closed.');

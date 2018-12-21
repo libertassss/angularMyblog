@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ArticleTagsComponent implements OnInit {
 
   constructor() { }
-  public isSelected:object={path:'articleTags',key:2};
-  public tagChecked:string='文章标签';
+
+
   ngOnInit() {
   }
 
