@@ -36,8 +36,11 @@
               "node_modules/ng-zorro-antd/ng-zorro-antd.min.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js"
-              
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/marked/lib/marked.js",
+              "node_modules/tinymce/tinymce.min.js",
+              "node_modules/tinymce/themes/modern/theme.js",
+              "node_modules/tinymce/plugins/fullscreen/plugin.js"
             ]
           },
           "configurations": {

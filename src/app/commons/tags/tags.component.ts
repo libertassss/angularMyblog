@@ -14,7 +14,6 @@ export class TagsComponent implements OnInit {
   public tagChecked:any;
   
   ngOnInit() {
-   alert('tag')
     this.tags=this.storage.getPaths();
     this.tagChecked=this.storage.getTagChecked();
     console.log(this.tags);

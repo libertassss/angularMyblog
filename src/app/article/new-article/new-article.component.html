@@ -1,3 +1,41 @@
-<p>哈哈哈哈</p>
+
+ 
+<div class="content">
+  <!-- 类别选择器 -->
+    <nz-cascader
+      nzChangeOnSelect
+      [nzOptions]="categoryList"
+      [(ngModel)]="values"
+      [nzValueProperty]="'id'"
+      [nzLabelProperty]="'categoryName'"
+      (ngModelChange)="onChanges($event)"
+      (nzSelect)="fun($event)"
+      >
+    </nz-cascader>
+    <!-- 标签选择器 -->
+    <nz-select style="width: 200px;" [(ngModel)]="selectTag" [nzSize]="size" nzMode="multiple">
+      <nz-option *ngFor="let tag of tags" [nzLabel]="tag.tagName" [nzValue]="tag.tagId"></nz-option>
+    </nz-select>
+
+    <!-- <nz-tree-select
+      style="width: 250px"
+      [nzNodes]="categoryList"
+      nzShowSearch
+      nzPlaceHolder="Please select"
+      [(ngModel)]="value"
+      (ngModelChange)="onChanges($event)"
+      [nzDisplayWith]="(node: categoryList) => node.categoryName"
+      >
+    </nz-tree-select> -->
+</div>
+<!-- 编辑器 -->
+<editor [(ngModel)]="dataModel" (onSelectionChange)="handleEvent($eventObj)" [init]="tinyMceSettings">
+
+</editor>
+
+<input type="file" id="file_input" style="visibility: hidden" accept="image/**" (change)="readFile($event)"/>
+
+
+
 
 

@@ -29,6 +29,12 @@ export class LeftNavComponent implements OnInit {
     this.isSelected='articleList';
     this.router.navigate(['/parents/articleList']);
   }
+  goNewArticle(){
+    this.storage.setPaths('新增文章');
+    this.isOpen='2';
+    this.isSelected='newArticle';
+    this.router.navigate(['/parents/newArticle']);
+  }
   goArticleCategory(){
     this.storage.setPaths('文章类别');
     this.isOpen='2';
