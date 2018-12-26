@@ -58,10 +58,8 @@
                   </ng-container>
                   <ng-container *ngIf="editCache[data.userId].edit">
                     <a (click)="saveEdit(data.userId)">Save</a>
-                    <!-- <nz-popconfirm [nzTitle]="'Sure to cancel?'" (nzOnConfirm)="cancelEdit(data.userId)">
-                      <a nz-popconfirm>Cancel</a>
-                    </nz-popconfirm> -->
                   </ng-container>
+                 
                 </div>
               </td>
            </tr>

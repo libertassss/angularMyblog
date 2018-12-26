@@ -1,11 +1,12 @@
 
  
 <div class="content">
+
   <!-- 类别选择器 -->
-    <nz-cascader
+    <span>文章类别：</span><nz-cascader
       nzChangeOnSelect
       [nzOptions]="categoryList"
-      [(ngModel)]="values"
+      [(ngModel)]="categoryIds"
       [nzValueProperty]="'id'"
       [nzLabelProperty]="'categoryName'"
       (ngModelChange)="onChanges($event)"
@@ -13,27 +14,26 @@
       >
     </nz-cascader>
     <!-- 标签选择器 -->
-    <nz-select style="width: 200px;" [(ngModel)]="selectTag" [nzSize]="size" nzMode="multiple">
+    <span>文章标签：</span><nz-select style="width: 200px;" [(ngModel)]="selectTagIds" [nzSize]="size" nzMode="multiple">
       <nz-option *ngFor="let tag of tags" [nzLabel]="tag.tagName" [nzValue]="tag.tagId"></nz-option>
     </nz-select>
+    <button class="save_btn" nz-button nzType="primary" (click)="save()">提交</button>
 
-    <!-- <nz-tree-select
-      style="width: 250px"
-      [nzNodes]="categoryList"
-      nzShowSearch
-      nzPlaceHolder="Please select"
-      [(ngModel)]="value"
-      (ngModelChange)="onChanges($event)"
-      [nzDisplayWith]="(node: categoryList) => node.categoryName"
-      >
-    </nz-tree-select> -->
-</div>
+    <!-- 文章标题 -->
+    <p class="title_box">
+      <span class="title">文章标题</span>
+      <input nz-input placeholder="请输入文章标题" [(ngModel)]="articleTitle">
+    </p>
 <!-- 编辑器 -->
-<editor [(ngModel)]="dataModel" (onSelectionChange)="handleEvent($eventObj)" [init]="tinyMceSettings">
+    <editor [(ngModel)]="articleContent" (onSelectionChange)="handleEvent($event)" [init]="tinyMceSettings">
 
-</editor>
+    </editor>
+    
+</div>
 
-<input type="file" id="file_input" style="visibility: hidden" accept="image/**" (change)="readFile($event)"/>
+
+
+
 
 
 

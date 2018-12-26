@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { MarkdownModule,MarkedOptions } from 'ngx-markdown';
 
 
 
@@ -55,7 +56,9 @@ import { ParentsComponent } from './parents/parents.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    EditorModule 
+    EditorModule,
+    MarkdownModule.forRoot(),
+
   ],
   // 服务
   providers: [{ provide: NZ_I18N, useValue: {nzDuration: 3000}},StorageService],
