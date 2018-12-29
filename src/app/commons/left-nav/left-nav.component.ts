@@ -47,6 +47,13 @@ export class LeftNavComponent implements OnInit {
     this.isSelected='articleTags';
     this.router.navigate(['/parents/articleTags']);
   }
+
+  public goBlogNav():void{
+    this.storage.setPaths('导航');
+    this.isOpen='3';
+    this.isSelected='blogNav';
+    this.router.navigate(['/parents/blogNav']);
+  }
   constructor(public storage:StorageService,public router:Router) { }
 
   ngOnInit() {

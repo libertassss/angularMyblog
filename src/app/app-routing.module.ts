@@ -8,6 +8,8 @@ import { ArticleCategoryComponent } from './article/article-category/article-cat
 import { ArticleTagsComponent } from './article/article-tags/article-tags.component';
 import { NewArticleComponent } from './article/new-article/new-article.component';
 import { ParentsComponent } from './parents/parents.component';
+import { BlogNavComponent } from './navigation/blog-nav/blog-nav.component';
+import { IndexPageComponent } from './homePages/index-page/index-page.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -19,9 +21,11 @@ const routes: Routes = [
       {path:'articleList',component:ArticleListComponent,},
       {path:'articleCategory',component:ArticleCategoryComponent},
       {path:'articleTags',component:ArticleTagsComponent},
-      {path:'newArticle',component:NewArticleComponent}
+      {path:'newArticle',component:NewArticleComponent},
+      {path:'blogNav',component:BlogNavComponent}
     ]
   },
+  {path:'indexPage',component:IndexPageComponent}
 ];
 
 @NgModule({

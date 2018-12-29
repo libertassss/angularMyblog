@@ -17,6 +17,7 @@ export class ArticleListComponent implements OnInit {
   public indeterminate:boolean = false;
  
   refreshStatus(): void {
+    
     const allChecked = this.articleData.every(value => value.checked === true);
     const allUnChecked = this.articleData.every(value => !value.checked);
     this.allChecked = allChecked;
@@ -29,7 +30,7 @@ export class ArticleListComponent implements OnInit {
   }
   startEdit(key: number): void {
     this.editCache[key].edit=true;
-   }
+  }
   cancelEdit(key: number): void {
     this.editCache[ key  ].edit =false;
   }
@@ -51,10 +52,18 @@ export class ArticleListComponent implements OnInit {
   public edit(item:any):any{
 
   }
-
+  public delete(id:number):void{
+    let data=[];
+    data.push(id);
+    var datas={
+      item:data
+    };
+    this.http.post("/api/deleteArticleMall",datas).subscribe((res:any)=>{
+      console.log(res);
+    },(err:any)=>{})
+  }
   public editArticle():void{
     console.log(1);
-
     this.router.navigateByUrl('/parents/newArticle');
   }
   ngOnInit() {

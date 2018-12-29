@@ -1,3 +1,69 @@
 
         <!-- 文章类别 -->
 
+<div class="content">
+                <nz-table [nzNoResult]="'暂无数据'" #editRowTable [nzBordered]="true" [nzData]="tagData" [nzShowPagination]="false">
+                                <thead>
+                                   <tr>
+                                     <th nzShowCheckbox nzShowRowSelection [nzSelections]="listOfSelection" [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+                                     <th nzWidth="10%">标签Id</th>
+                                     <th nzWidth="20%">标签名称</th>
+                                     <th nzWidth="20%">标签描述</th>
+                                     <th nzWidth="25%">标签状态</th>
+                                     <th><span>操作</span><span (click)="isVisible=true">增加</span></th>
+                                   </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let data of editRowTable.data">
+                                     <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus()"></td>
+                                     <td>
+                                       <ng-container>
+                                         {{data.tagId}}
+                                       </ng-container>
+                                     </td>
+                                     <td>
+                                       <ng-container *ngIf="!editCache[(data.tagId)].edit">
+                                         {{data.tagName}}
+                                       </ng-container>
+                                       <ng-container *ngIf="editCache[(data.tagId)].edit">
+                                           <input type="text" nz-input [(ngModel)]="editCache[data.tagId].data.tagName">
+                                       </ng-container>
+                                     </td>
+                                     <td>
+                                       <ng-container *ngIf="!editCache[data.tagId].edit">
+                                         {{data.tagDescription}}
+                                       </ng-container>
+                                       <ng-container *ngIf="editCache[data.tagId].edit">
+                                         <input type="text" nz-input [(ngModel)]="editCache[data.tagId].data.tagDescription">
+                                       </ng-container>
+                                     </td>
+                                     <td>
+                                       <ng-container *ngIf="!editCache[data.tagId].edit">
+                                         {{data.tagStatus}}
+                                       </ng-container>
+                                       <ng-container *ngIf="editCache[data.tagId].edit">
+                                         <input type="text" nz-input [(ngModel)]="editCache[data.tagId].data.tagStatus">
+                                       </ng-container>
+                                     </td>
+                                     <td>
+                                       <div class="editable-row-operations">
+                                         <ng-container *ngIf="!editCache[data.tagId].edit">
+                                           <a (click)="startEdit(data.tagId)">Edit</a>
+                                         </ng-container>
+                                         <ng-container *ngIf="editCache[data.tagId].edit">
+                                           <a (click)="saveEdit(data.tagId)">Save</a>
+                                         </ng-container>
+                                         <ng-container>
+                                           <a (click)="delete(data.tagId)">删除</a>
+                                         </ng-container>
+                                       </div>
+                                     </td>
+                                  </tr>
+                                </tbody>
+                              </nz-table>
+
+                                <nz-modal [(nzVisible)]="isVisible" nzTitle="添标签" nzOkText="确定" nzCancelText="取消" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+                                        <input nz-input placeholder="请输入标签名称" [(ngModel)]="tagName">
+                                        <input nz-input placeholder="请输入标签描述" [(ngModel)]="tagDescription">
+                                </nz-modal>
+</div>

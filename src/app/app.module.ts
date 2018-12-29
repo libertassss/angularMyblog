@@ -27,6 +27,8 @@ import { ArticleTagsComponent } from './article/article-tags/article-tags.compon
 import { TagsComponent } from './commons/tags/tags.component';
 import { NewArticleComponent } from './article/new-article/new-article.component';
 import { ParentsComponent } from './parents/parents.component';
+import { BlogNavComponent } from './navigation/blog-nav/blog-nav.component';
+import { IndexPageComponent } from './homePages/index-page/index-page.component';
 
 
 
@@ -46,6 +48,8 @@ import { ParentsComponent } from './parents/parents.component';
     TagsComponent,
     NewArticleComponent,
     ParentsComponent,
+    BlogNavComponent,
+    IndexPageComponent,
     
   ],
 //  模块

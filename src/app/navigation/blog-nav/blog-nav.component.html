@@ -1,0 +1,6 @@
+<button nz-button nzType="default" (click)="isVisible=true">新增菜单</button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="添加菜单" nzOkText="确定" nzCancelText="取消" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <input nz-input placeholder="请输入菜单名称" [(ngModel)]="menuName">
+  <input nz-input placeholder="请输入菜单等级" [(ngModel)]="menuLevel">
+  <input nz-input placeholder="请输入菜单图标" [(ngModel)]="menuIcon">
+</nz-modal>

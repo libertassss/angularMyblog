@@ -3,8 +3,24 @@
 
 </div> -->
 <markdown [data]="content"></markdown>
+<button nz-button nzType="default" (click)="append(0)" [nzSize]="small">添加</button>
 
+<nz-tree
+#treeCom
+[nzData]="categoryList"
+nzMultiple="true"
+>
+<ng-template #nzTreeTemplate let-node>  
+    <span *ngIf="node.origin.children.length>=0">
+      <span class="file-name">{{node.origin.categoryName}}</span>
+      <span><button nz-button nzType="default" (click)="append(node.origin.id)" [nzSize]="small">添加</button></span>
+      <span><button nz-button nzType="default" (click)="deleteAll(node.origin)" [nzSize]="small">删除</button></span>
+    </span>
+</ng-template>
+</nz-tree>
 
-<div class="content">
-        
-</div>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="添加分类" nzOkText="确定" nzCancelText="取消" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <input nz-input placeholder="请输入分类名称" [(ngModel)]="categoryName">
+    <input nz-input placeholder="请输入分类描述" [(ngModel)]="categoryDescription">
+    <input nz-input placeholder="请输入分类图标" [(ngModel)]="categoryIcon">
+</nz-modal>
