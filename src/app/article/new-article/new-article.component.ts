@@ -105,7 +105,7 @@ export class NewArticleComponent implements OnInit {
       statusbar: false,
       browser_spellcheck: true,
       height: 800,
-      plugins: 'image preview',
+      plugins: 'image preview link',
       images_upload_handler:function(blobInfo, success, failure){
         console.log(blobInfo);
         var data;

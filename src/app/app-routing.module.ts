@@ -10,6 +10,7 @@ import { NewArticleComponent } from './article/new-article/new-article.component
 import { ParentsComponent } from './parents/parents.component';
 import { BlogNavComponent } from './navigation/blog-nav/blog-nav.component';
 import { IndexPageComponent } from './homePages/index-page/index-page.component';
+import { BlogIndexComponent } from './homePages/blog-index/blog-index.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -25,7 +26,11 @@ const routes: Routes = [
       {path:'blogNav',component:BlogNavComponent}
     ]
   },
-  {path:'indexPage',component:IndexPageComponent}
+  {path:'indexPage',component:IndexPageComponent,
+    children:[
+      {path:'blogIndex',component:BlogIndexComponent}
+    ]
+  }
 ];
 
 @NgModule({

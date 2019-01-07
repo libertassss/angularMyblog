@@ -2,12 +2,12 @@
     <div class="content">
       <h2>登录</h2>
         <nz-input-group [nzPrefix]="prefixTemplate" [nzSize]="large" class="txt_input">
-          <input type="text" nz-input placeholder="Enter your username" [(ngModel)]="userName">
+          <input type="text" nz-input placeholder="请输入用户名" [(ngModel)]="userName">
         </nz-input-group>
         <ng-template #prefixTemplate><i nz-icon type="user"></i></ng-template>
 
         <nz-input-group [nzPrefix]="passPrefixTemplate" [nzSize]="large" class="txt_input">
-            <input type="text" nz-input placeholder="Enter your username" [(ngModel)]="userPass">
+            <input type="password" nz-input placeholder="请输入密码" [(ngModel)]="userPass">
           </nz-input-group>
           <ng-template #passPrefixTemplate><i nz-icon type="lock"></i></ng-template>
           <p class="login_btn"><button nz-button nzType="default" (click)="loadData()">登录</button></p>

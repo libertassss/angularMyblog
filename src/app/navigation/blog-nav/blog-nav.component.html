@@ -4,3 +4,79 @@
   <input nz-input placeholder="请输入菜单等级" [(ngModel)]="menuLevel">
   <input nz-input placeholder="请输入菜单图标" [(ngModel)]="menuIcon">
 </nz-modal>
+
+<nz-table [nzNoResult]="'暂无数据'" #editRowTable [nzBordered]="true" [nzData]="menuList" [nzShowPagination]="false">
+  <thead>
+     <tr>
+       <th nzShowCheckbox nzShowRowSelection [nzSelections]="listOfSelection" [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+       <th nzWidth="10%">菜单Id</th>
+       <th nzWidth="20%">菜单名称</th>
+       <th nzWidth="20%">菜单图标</th>
+       <th nzWidth="10%">菜单等级</th>
+       <th nzWidth="10%">菜单排序</th>
+       <th nzWidth="10%">菜单状态</th>
+       <th>操作</th>
+     </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of editRowTable.data">
+       <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus()"></td>
+       <td>
+         <ng-container>
+           {{data.menuId}}
+         </ng-container>
+       </td>
+       <td>
+         <ng-container *ngIf="!editCache[(data.menuId)].edit">
+           {{data.menuName}}
+         </ng-container>
+         <ng-container *ngIf="editCache[(data.menuId)].edit">
+             <input type="text" nz-input [(ngModel)]="editCache[data.menuId].data.menuName">
+         </ng-container>
+       </td>
+       <td>
+         <ng-container *ngIf="!editCache[data.menuId].edit">
+           {{data.menuIcon}}
+         </ng-container>
+         <ng-container *ngIf="editCache[data.menuId].edit">
+           <input type="text" nz-input [(ngModel)]="editCache[data.menuId].data.menuIcon">
+         </ng-container>
+       </td>
+       <td>
+         <ng-container *ngIf="!editCache[data.menuId].edit">
+           {{data.menuLevel}}
+         </ng-container>
+         <ng-container *ngIf="editCache[data.menuId].edit">
+           <input type="text" nz-input [(ngModel)]="editCache[data.menuId].data.menuLevel">
+         </ng-container>
+       </td>
+       <td>
+         <ng-container *ngIf="!editCache[data.menuId].edit">
+           {{data.menuOrder}}
+         </ng-container>
+         <ng-container *ngIf="editCache[data.menuId].edit">
+           <input type="text" nz-input [(ngModel)]="editCache[data.menuId].data.menuOrder">
+         </ng-container>
+       </td>
+       <td>
+        <ng-container *ngIf="!editCache[data.menuId].edit">
+          {{data.menuStatus}}
+        </ng-container>
+        <ng-container *ngIf="editCache[data.menuId].edit">
+          <input type="text" nz-input [(ngModel)]="editCache[data.menuId].data.menuStatus">
+        </ng-container>
+      </td>
+       <td>
+         <div class="editable-row-operations">
+           <ng-container *ngIf="!editCache[data.menuId].edit">
+             <a (click)="startEdit(data.menuId)">Edit</a>
+           </ng-container>
+           <ng-container *ngIf="editCache[data.menuId].edit">
+             <a (click)="saveEdit(data.menuId)">Save</a>
+           </ng-container>
+          
+         </div>
+       </td>
+    </tr>
+  </tbody>
+</nz-table>

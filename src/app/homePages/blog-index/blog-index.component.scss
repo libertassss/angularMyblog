@@ -1,0 +1,23 @@
+.box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .banner{
+        width: 100%;
+        height: 20rem;
+        background: url(../../../assets/img/banner.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
+    .content{
+        width: 50%;
+    }
+    .item_content{
+        
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}

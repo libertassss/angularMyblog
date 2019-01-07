@@ -14,7 +14,7 @@ nzMultiple="true"
     <span *ngIf="node.origin.children.length>=0">
       <span class="file-name">{{node.origin.categoryName}}</span>
       <span><button nz-button nzType="default" (click)="append(node.origin.id)" [nzSize]="small">添加</button></span>
-      <span><button nz-button nzType="default" (click)="deleteAll(node.origin)" [nzSize]="small">删除</button></span>
+      <span><button nz-button nzType="default" (click)="deleteAll(node.origin.id)" [nzSize]="small">删除</button></span>
     </span>
 </ng-template>
 </nz-tree>

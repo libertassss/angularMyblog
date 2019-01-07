@@ -72,8 +72,15 @@ export class ArticleCategoryComponent implements OnInit {
     },(err:any)=>{})
   }
 
-  public deleteAll(ids:Array<number>):void{
-    console.log(ids);
+  public deleteAll(id:number):void{
+    console.log(id);
+    var data={
+      categoryId:id
+    };
+    this.http.post("/api/selectChildren",data).subscribe((res:any)=>{
+      console.log(res);
+    },(err:any)=>{})
+
   }
   
   ngOnInit() {

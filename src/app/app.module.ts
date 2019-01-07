@@ -29,6 +29,8 @@ import { NewArticleComponent } from './article/new-article/new-article.component
 import { ParentsComponent } from './parents/parents.component';
 import { BlogNavComponent } from './navigation/blog-nav/blog-nav.component';
 import { IndexPageComponent } from './homePages/index-page/index-page.component';
+import { IndexHeaderComponent } from './homePages/commons/index-header/index-header.component';
+import { BlogIndexComponent } from './homePages/blog-index/blog-index.component';
 
 
 
@@ -50,6 +52,8 @@ import { IndexPageComponent } from './homePages/index-page/index-page.component'
     ParentsComponent,
     BlogNavComponent,
     IndexPageComponent,
+    IndexHeaderComponent,
+    BlogIndexComponent,
     
   ],
 //  模块
