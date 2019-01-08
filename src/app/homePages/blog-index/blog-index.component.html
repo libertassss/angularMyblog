@@ -1,6 +1,5 @@
 <div class="box">
     <div class="banner">
-      
     </div>
   <div class="content">
     <div class="blogList">
@@ -10,21 +9,20 @@
       [nzItemLayout]="'vertical'"
       [nzRenderItem]="item"
       [nzPagination]="pagination"
-      [nzFooter]="footer">
+      >
       <ng-template #item let-item>
         <nz-list-item [nzContent]="content" [nzActions]="[starAction,likeAction,msgAction]" [nzExtra]="extra">
-         
-          <ng-template #starAction><i nz-icon type="star-o" style="margin-right: 8px;"></i> 156</ng-template>
-          <ng-template #likeAction><i nz-icon type="like-o" style="margin-right: 8px;"></i> 156</ng-template>
-          <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template>
+          <ng-template #starAction><i nz-icon type="eye" theme="outline" style="margin-right: 8px;"></i> {{item.articleViewCount}}</ng-template>
+          <ng-template #likeAction><i nz-icon type="like-o" style="margin-right: 8px;"></i> {{item.articleCommentCount}}</ng-template>
+          <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> {{item.articleLikeCount}}</ng-template>
           <nz-list-item-meta
             [nzTitle]="nzTitle"
             [nzDescription]="tag">
-            <ng-template #nzTitle><a href="{{item.articleTitle}}">{{item.articleTitle}}</a></ng-template>
-            <ng-template #tag>{{item.tag[0].tagName}}</ng-template>
+            <ng-template #nzTitle><a (click)="goArticle(item.articleId)">{{item.articleTitle}}</a></ng-template>
+            <ng-template #tag ><span *ngFor="let tagItem of item.tag">{{tagItem.tagName}}</span></ng-template>
           </nz-list-item-meta>
             <p class="item_content" #content>
-              {{item.articleContentMd}}
+             <a (click)="goArticle(item.articleId)">{{item.articleContentMd}}</a> 
             </p>
           <ng-template #extra>
             <img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png">
@@ -34,7 +32,8 @@
       <!-- <ng-template #footer>
         <div><b>ant design</b> footer part</div>
       </ng-template>
-      <ng-template #pagination>
+       -->
+      <!-- <ng-template #pagination>
         <nz-pagination [nzPageIndex]="1" [nzTotal]="50" (nzPageIndexChange)="loadData($event)"></nz-pagination>
       </ng-template> -->
     </nz-list>

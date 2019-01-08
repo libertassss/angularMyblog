@@ -9,20 +9,30 @@ import { HttpClient } from '@angular/common/http';
 export class BlogIndexComponent implements OnInit {
 
   constructor(private http:HttpClient) { }
+  public pageNow:number=1;
   public articleNew:any;
-  public getArticleNew():void{
-    this.http.post("/api/selectAllArticle",'').subscribe((res:any)=>{
+  public getArticleNew(pagesize:number):void{
+    var data={
+      psize:pagesize,
+    }
+    this.http.post("/api/selectAllArticle?pageNow="+this.pageNow,data).subscribe((res:any)=>{
       console.log(res);
       if(res.code==0){
-        this.articleNew=res.data;
+        this.articleNew=res.data.articleList;
         
-       
       }
     },(err:any)=>{})
   }
+  public loadData(e:any):void{
+
+  }
+
+  public goArticle(id:number):void{
+
+  }
 
   ngOnInit() {
-    this.getArticleNew();
+    this.getArticleNew(6);
   }
 
 }
