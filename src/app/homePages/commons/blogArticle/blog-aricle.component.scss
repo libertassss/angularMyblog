@@ -1,0 +1,27 @@
+
+        .nav{
+            padding: 0 .625rem;
+            font-size: 1rem;
+            box-shadow: -.0625rem -.0625rem .0625rem #ddd;
+            border-radius: .175rem;
+            border-bottom: 1px solid rgb(54,124,184);
+            background: rgb(245, 245, 245);
+            display: flex;
+            justify-content: space-between;
+            height: 2.4rem;
+            .tagItem{
+                height: 2.4rem;
+                line-height: 2.4rem;
+            }
+            .personer_box{
+                height: 2.3rem;
+                display: flex;
+                justify-content: end;
+                align-items: flex-end;
+                .personer{
+                    font-size: .75rem;
+                }
+            }
+            
+        }
+

@@ -1,0 +1,12 @@
+<div class="box">
+  <div class="content">
+    <app-blog-aricle></app-blog-aricle>
+    <div class="article_box">
+      <h1 class="title">{{articleContent.articleTitle}}</h1>
+      <p class="time_box">
+        <span>发布时间：<span>{{articleContent.articlePostTime|date: "y/MM/dd"}}</span></span>
+      </p>
+      <div class="articleContent" [innerHTML]="articleContent.articleContent"></div>
+    </div>
+  </div>
+</div>

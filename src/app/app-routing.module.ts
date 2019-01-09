@@ -12,6 +12,9 @@ import { BlogNavComponent } from './navigation/blog-nav/blog-nav.component';
 import { IndexPageComponent } from './homePages/index-page/index-page.component';
 import { BlogIndexComponent } from './homePages/blog-index/blog-index.component';
 
+import { BlogArticlesComponent } from './homePages/blog-articles/blog-articles.component';
+
+
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'login',component:LoginComponent},
@@ -28,7 +31,8 @@ const routes: Routes = [
   },
   {path:'indexPage',component:IndexPageComponent,
     children:[
-      {path:'blogIndex',component:BlogIndexComponent}
+      {path:'blogIndex',component:BlogIndexComponent},
+      {path:'blogArticles',component:BlogArticlesComponent}
     ]
   }
 ];

@@ -15,6 +15,7 @@ export class ArticleListComponent implements OnInit {
   public editCache:object={};
   public allChecked:boolean = false;
   public indeterminate:boolean = false;
+  public pagenow:number=1;
  
   refreshStatus(): void {
     
@@ -67,12 +68,15 @@ export class ArticleListComponent implements OnInit {
     this.router.navigateByUrl('/parents/newArticle');
   }
   ngOnInit() {
-    this.http.post('/api/selectAllArticle','').subscribe((res:any)=>{
+    var data={
+      psize:6
+    };
+    this.http.post('/api/selectAllArticle?pageNow='+this.pagenow,data).subscribe((res:any)=>{
         console.log(res);
         if(res.code==0){
          
-          this.articleData=res.data;
-          res.data.forEach(item=>{
+          this.articleData=res.data.articleList;
+          res.data.articleList.forEach(item=>{
             if(!this.editCache[(item.articleId)]){
               this.editCache[(item.articleId)]={
                 edit:false,
