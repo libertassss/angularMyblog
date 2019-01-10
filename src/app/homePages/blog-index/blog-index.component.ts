@@ -12,20 +12,21 @@ export class BlogIndexComponent implements OnInit {
   constructor(private http:HttpClient,private router:Router) { }
   public pageNow:number=1;
   public articleNew:any;
-  public getArticleNew(pagesize:number):void{
+  public total:number;
+  public getArticleNew(e:number):void{
     var data={
-      psize:pagesize,
+      psize:6,
     }
-    this.http.post("/api/selectAllArticle?pageNow="+this.pageNow,data).subscribe((res:any)=>{
+    this.http.post("/api/selectAllArticle?pageNow="+e,data).subscribe((res:any)=>{
       console.log(res);
       if(res.code==0){
         this.articleNew=res.data.articleList;
-        
+        this.total=res.data.total;
       }
     },(err:any)=>{})
   }
   public loadData(e:any):void{
-    
+    console.log(e);
   }
 
   public goArticle(id:number):void{
@@ -37,7 +38,7 @@ export class BlogIndexComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getArticleNew(6);
+    this.getArticleNew(1);
   }
 
 }

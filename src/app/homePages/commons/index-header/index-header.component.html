@@ -1,5 +1,8 @@
+<header>
 <ul nz-menu [nzMode]="'horizontal'" [nzTheme]="'dark'">
   <li nz-menu-item style="color: #fff">钟媛媛的个人博客</li>
   <li nz-menu-item *ngFor="let navListItem of navList">{{navListItem.menuName}}</li>
   <li (click)="goLogin()">后台管理</li>
 </ul>
+</header>
+

@@ -32,7 +32,7 @@ const routes: Routes = [
   {path:'indexPage',component:IndexPageComponent,
     children:[
       {path:'blogIndex',component:BlogIndexComponent},
-      {path:'blogArticles',component:BlogArticlesComponent}
+      {path:'blogIndex/:id',component:BlogArticlesComponent}
     ]
   }
 ];
