@@ -6,7 +6,7 @@
     background: rgb(245, 245, 245);
     .content{
         width: 60%;
-        padding-top: 1.25rem;
+        padding-top: 1rem;
         .content_box{
             display: flex;
             flex-direction: row;
@@ -65,6 +65,13 @@
                             margin-right: .5rem;
                         }
                     }
+                }
+                .top_next{
+                    margin-top: 1.25rem;
+                    width: 85%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                 }
                 
             }

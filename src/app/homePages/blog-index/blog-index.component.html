@@ -18,15 +18,15 @@
           <nz-list-item-meta
             [nzTitle]="nzTitle"
             [nzDescription]="tag">
-            <ng-template #nzTitle><a routerLink="['/blogIndex',item.articleId]">{{item.articleTitle}}</a></ng-template>
+            <ng-template #nzTitle><a [routerLink]="['/indexPage/blogArticles',item.articleId]">{{item.articleTitle}}</a></ng-template>
             <ng-template #tag ><span *ngFor="let tagItem of item.tag">{{tagItem.tagName}}</span></ng-template>
           </nz-list-item-meta>
             <p class="item_content" #content>
-             <a routerLink="['/blogIndex',item.articleId]">{{item.articleContentMd}}</a> 
+             <a [routerLink]="['/indexPage/blogArticles',item.articleId]">{{item.articleContentMd}}</a> 
             </p>
-          <ng-template #extra>
+          <!-- <ng-template #extra>
             <img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png">
-          </ng-template>
+          </ng-template> -->
         </nz-list-item>
       </ng-template>
       <!-- <ng-template #pagination>

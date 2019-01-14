@@ -1,8 +1,8 @@
 <nz-layout class="box">
-    <nz-header>
-        <app-index-header></app-index-header>
+    <nz-header class="fixed_header" style="position:fixed; width:100%">
+        <app-index-header [menuId]="menuId"></app-index-header>
     </nz-header>
     <nz-content>
-        <router-outlet></router-outlet>
+        <router-outlet #childComponent></router-outlet>
     </nz-content>
 </nz-layout>

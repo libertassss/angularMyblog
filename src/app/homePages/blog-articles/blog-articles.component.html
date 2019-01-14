@@ -3,28 +3,27 @@
     <app-blog-aricle></app-blog-aricle>
     <div class="content_box">
       <div class="article_box">
-        <h1 class="title">{{articleContent.articleTitle}}</h1>
+        <h1 class="title">{{article.articleTitle}}</h1>
         <p class="time_box">
-          <span class="time">发布时间：<span>{{articleContent.articlePostTime|date: "y/MM/dd"}}</span></span>
-          <span class="user">编辑：<span>{{articleContent.user.userNickname}}</span></span>
+          <span class="time">发布时间：<span>{{article.articlePostTime|date: "y/MM/dd"}}</span></span>
+          <span class="user">编辑：<span>{{article.user.userNickname}}</span></span>
         </p>
-        <!-- <div class="articleContent" [innerHTML]="articleContent.articleContent"></div> -->
-        <markdown class="articleContent" [data]="articleContent.articleContent"></markdown>
+        <markdown class="articleContent" [data]="articleContent"></markdown>
         <p class="tag_box">
           <span class="tags">
-              <i nz-icon type="tag" theme="outline"></i> 标签：<span *ngFor="let item of articleContent.tag">{{item.tagName}}</span>
+              <i nz-icon type="tag" theme="outline"></i> 标签：<span *ngFor="let tagOne of tags">{{tagOne.tagName}}</span>
           </span>
         </p>
-        <p>
-          上一篇：<a href="http://localhost:4200/indexPage/blogArticles?id="+topArticle.articleId>{{topArticle.articleTitle}}</a>
-          下一篇：<a href="http://localhost:4200/indexPage/blogArticles?id="+nextArticle.articleId>{{nextArticle.articleTitle}}</a>
+        <p class="top_next">
+          <span><span *ngIf="topArticle!=null">上一篇：<a [routerLink]="['/indexPage/blogArticles',topArticle.articleId]">{{topArticle.articleTitle}}</a></span></span>
+          <span><span *ngIf="nextArticle!=null">下一篇：<a [routerLink]="['/indexPage/blogArticles',nextArticle.articleId]">{{nextArticle.articleTitle}}</a></span></span>
         </p>
       </div>
       <div class="right_box">
         <div class="latest">
           <h3>最新发布</h3>
           <ul>
-            <li *ngFor="let item of articleList" (click)="goArticle(item.articleId)">{{item.articleTitle}}</li>
+            <li *ngFor="let item of articleList"><a [routerLink]="['/indexPage/blogArticles',item.articleId]" >{{item.articleTitle}}</a></li>
           </ul>
         </div>
         <div class="f_link">
@@ -37,4 +36,4 @@
     </div>  
     
   </div>
-</div>
+</div>  

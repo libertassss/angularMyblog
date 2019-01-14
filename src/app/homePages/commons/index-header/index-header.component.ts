@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ export class IndexHeaderComponent implements OnInit {
 
   constructor(private http:HttpClient,private router:Router) { }
   public navList:any;
+  @Input() menuId:number;
   public getNavList():void{
     this.http.post("/api/selecteMenu",'').subscribe((res:any)=>{
       console.log(res);
@@ -21,6 +22,13 @@ export class IndexHeaderComponent implements OnInit {
   }
   public goLogin():void{
     this.router.navigate(['login']);
+  }
+
+  public goContent(id:number):void{
+    switch(id){
+      case 1:
+      this.router.navigate(["indexPage/blogIndex"]);
+    }
   }
 
   ngOnInit() {
