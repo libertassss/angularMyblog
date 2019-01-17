@@ -33,6 +33,9 @@ import { IndexHeaderComponent } from './homePages/commons/index-header/index-hea
 import { BlogIndexComponent } from './homePages/blog-index/blog-index.component';
 import { BlogAricleComponent } from './homePages/commons/blogArticle/blog-aricle.component'
 import { BlogArticlesComponent } from './homePages/blog-articles/blog-articles.component';
+import { BlogListComponent } from './homePages/blog-list/blog-list.component';
+import { AboutMeComponent } from './homePages/about-me/about-me.component';
+import { SearchPagesComponent } from './homePages/search-pages/search-pages.component';
 
 
 
@@ -58,6 +61,9 @@ import { BlogArticlesComponent } from './homePages/blog-articles/blog-articles.c
     BlogIndexComponent,
     BlogAricleComponent,
     BlogArticlesComponent,
+    BlogListComponent,
+    AboutMeComponent,
+    SearchPagesComponent,
     
   ],
 //  模块

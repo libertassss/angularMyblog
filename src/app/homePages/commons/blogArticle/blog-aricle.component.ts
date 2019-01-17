@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
+import { MyServiceService } from '../../../service/my-service.service';
+
 
 @Component({
   selector: 'app-blog-aricle',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogAricleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myService:MyServiceService) { }
 
+  private menuIds:Array<string>=[];
   ngOnInit() {
+    
   }
+  ngDoCheck(){
+    this.menuIds=this.myService.getMenuIds();
+  }
+
+  
 
 }

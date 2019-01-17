@@ -1,0 +1,20 @@
+.box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .content{
+        width: 60%;
+        padding-top: 1rem;
+        .aboutMe{
+            margin-top: 1.25rem;
+            h1{
+                font-size: 1.25rem;
+                font-weight: 500;
+                color: rgb(51, 51, 51);
+            }
+            p{
+                text-indent:25px;
+            }
+        }
+    }
+}

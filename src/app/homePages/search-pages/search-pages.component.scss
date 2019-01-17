@@ -1,0 +1,42 @@
+.box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .content{
+        width: 60%;
+        padding-top: 3.125rem;
+        .top_input{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            .btn_box{
+                margin-right: .325rem;
+            }
+        }
+        .searchList{
+            width: 100%;
+            .item_content{
+                position: relative; 
+                line-height: 20px;
+                max-height: 40px;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                a{
+                    color: #222;
+                }
+                a:hover{
+                    color: dodgerblue;
+                }
+                }
+            h1{
+                text-align: center;
+                padding: 1.25rem;
+            }
+            
+        }
+    }
+}

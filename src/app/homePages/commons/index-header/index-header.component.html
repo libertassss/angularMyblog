@@ -2,7 +2,19 @@
 <ul nz-menu [nzMode]="'horizontal'" [nzTheme]="'dark'">
   <li nz-menu-item style="color: #fff">钟媛媛的个人博客</li>
   <li nz-menu-item *ngFor="let navListItem of navList" (click)="goContent(navListItem.menuId)" [nzSelected]="menuId==navListItem.menuId">{{navListItem.menuName}}</li>
-  <li (click)="goLogin()">后台管理</li>
 </ul>
+<div class="input_box">
+    <nz-input-group [nzPrefix]="prefixTemplate">
+        <input type="text" nz-input placeholder="搜索" (click)="goSearch()">
+      </nz-input-group>
+      <ng-template #prefixTemplate><i nz-icon type="search"></i></ng-template>
+  <!-- <nz-input-group nzSearch nzSize="large" [nzSuffix]="suffixButton">
+    <input type="text" nz-input placeholder="请输入关键字" [(ngModel)]="keyWorld">
+  </nz-input-group>
+  <ng-template #suffixButton>
+    <button (click)="goSearch()" nz-button nzType="primary" nzSize="large" nzSearch>搜索</button>
+  </ng-template> -->
+</div>
+
 </header>
 

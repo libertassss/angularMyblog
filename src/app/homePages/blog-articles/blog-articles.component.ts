@@ -27,7 +27,7 @@ export class BlogArticlesComponent implements OnInit {
     {linkName:'开源中国',linkUrl:'https://www.oschina.net/'}
   ]
   public getArticleContent(id:number):void{
-    // alert("我执行了");
+    
     var data={
       articleId:id
     }
@@ -71,19 +71,11 @@ export class BlogArticlesComponent implements OnInit {
       articleId:id
     };
     this.http.post("/api/selectNext",data).subscribe((res:any)=>{
-    
       if(res.code==0){
         this.nextArticle=res.data;
       }
     },(err:any)=>{})
   }
-
-  // public goArticle(id:number):void{
-  //   this.getArticleContent(id);
-  //   this.articleId=id;
-  //   this.getTopArticle(id);
-  //   this.getNextArticle(id);
-  // }
   ngOnInit() {
     this.router.params.subscribe((params:Params)=>{
      
@@ -92,8 +84,9 @@ export class BlogArticlesComponent implements OnInit {
       this.getArticleList()
        
     })
-   
-    
+    this.Myservice.setMenuId(4);
+    this.Myservice.setMenuIds(this.article.articleTitle);
+    console.log(document.cookie);
   }
   
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MyServiceService } from '../../service/my-service.service';
 
 @Component({
   selector: 'app-index-page',
@@ -7,21 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./index-page.component.scss']
 })
 export class IndexPageComponent implements OnInit {
-
-  constructor(private router:ActivatedRoute) { }
+  
+  constructor(private router:ActivatedRoute,private myService:MyServiceService) { }
   public menuId:number;
-  @ViewChild("childComponent") childComponent:any;
-
+ 
+  
 
   ngOnInit() {
-    console.log(this.childComponent);
-    switch(this.childComponent.nativeElement.nextSibling.localName){
-      case "app-blog-articles":
-        this.menuId=2;
-      case "app-blog-index":
-        this.menuId=1;
-    }
-    console.log(this.menuId);
+    
   }
 
 }

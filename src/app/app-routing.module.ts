@@ -13,10 +13,13 @@ import { IndexPageComponent } from './homePages/index-page/index-page.component'
 import { BlogIndexComponent } from './homePages/blog-index/blog-index.component';
 
 import { BlogArticlesComponent } from './homePages/blog-articles/blog-articles.component';
+import { BlogListComponent } from './homePages/blog-list/blog-list.component';
+import { AboutMeComponent } from './homePages/about-me/about-me.component';
+import { SearchPagesComponent } from './homePages/search-pages/search-pages.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:'',redirectTo:'indexPge/blogIndex',pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'parents',component:ParentsComponent,
     children:[
@@ -32,9 +35,12 @@ const routes: Routes = [
   {path:'indexPage',component:IndexPageComponent,
     children:[
       {path:'blogIndex',component:BlogIndexComponent},
-      {path:'blogArticles/:id',component:BlogArticlesComponent}
+      {path:'blogArticles/:id',component:BlogArticlesComponent},
+      {path:'blogList',component:BlogListComponent},
+      {path:'aboutMe',component:AboutMeComponent},
     ]
-  }
+  },
+  {path:'search',component:SearchPagesComponent}
 ];
 
 @NgModule({
